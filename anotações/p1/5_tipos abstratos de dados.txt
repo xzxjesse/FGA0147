@@ -1,0 +1,193 @@
+TAD
+-tipos abstratos de dados
+    tipos primitivos de dados
+    tipo de estruturas
+        dados encapsulados como um objeto
+        características e operações particulares
+    acessada por uma interface
+        não pe necessário saber como é feito, e sim o que é feito
+        ocultando as informações
+    tipos:
+        -pilhas
+        -filas
+        -árvores
+    
+    fila
+        alinhamento em sequência
+        FIFO first-in first-out
+            processamento em ordem de chegada
+            inserção no fim e remoções no início
+            complexidade constante
+        implementação com lista estática (vetores)
+            operações constantes
+                remoção do início
+                inserção no fim
+            ultima posição sempre vazia
+            fila vazia:
+                primeiro==ultimo
+            desinfileirar
+                remoção no início da fila
+            enfileirar
+                inserção no fim da fila
+            fila cheia
+                ultimo==tam_maximo
+            lista estática circular
+                se a fila estiver cheia, mas com espaços livres é possível usar lista circular
+                posição anterior a primeiro fica vazia
+                fila cheia:
+                    ultimo+1 ou (ultimo+1==tam_maximo e primeiro==0)
+                    (ultimo+1) % tam_maximo==primeiro
+                fila vazia:
+                    ultimo==primeiro
+            lista estática com redimencionamento
+                modifica o espaço armazenado para os dados da fila
+        implementação com lista encadeada
+            inserções no final da fila
+            remoções no começo
+            complexidade e tempo constante
+            lista duplamente encadeada circular
+                ultimo=lista->prox->ant
+            lista simplesmente encadeada circular modificada
+                ultimo aponta para a cabeça
+                usa a cabeça para inserir um elemento
+                transforma a cabeça num elemento normal
+                cria uma nova cabeça
+            lista simplesmente encadeada com cauda
+                apontador direto para a caude
+
+    pilhas
+        empilhamento de tarefas, colocando e tirando de cima
+        LIFO (last in, firt out)
+            ultimo a entrar, primeiro a sair
+        operações
+            criar 
+            vazia
+            empilhar
+            desempilhar
+            espiar
+        problemas clientes (exemplos de ações)
+            desfazer/refazer
+            historico de navegadores
+            gerenciamento de memoria
+            recursão
+            busca em profundidade
+            backtracking
+            inversao
+            balanceamento de símbolos
+            conversão de expressões
+        implementação com listas estáticas(vetores)
+            complexidade constante e baratas
+            operações constantes do topo
+                topo
+                    último elemento do vetor
+                    variavel auxiliar para indicar o indice do topo
+                vazia
+                    variavel auxiliar == 0
+                espia
+                    desempilhar sem sobrescrever o valor do topo(somente pegar, olhar e depois devolcer para o topo)
+                remoção
+                    retira o indice da (variavel-1)
+                desempilhar
+                    remoção no topo da pilha e coloca o topo pra -1
+                inserção
+                    coloca no topo da pilhar e coloca o topo pra +1
+                cheia
+                    não há espaços vazios pois só usamos o último elemento
+                    variavel auxiliar == n
+        implementação com listas encadeadas
+            tipo nó e tipo cabeça
+                é possível fazer sem
+            topo
+                todas as listas encadeadas contém o inicio em tempo constante e por isso usamos ele
+                usando só o prox, sem o último
+            empilhar
+                inserir no início
+            desempilhar
+                remover no início
+    árvores
+        estruturas de dados em ramos conectados, com crescimento para baixo
+        armazena um conjunto de dados com relações hierárquicas
+        grafo
+            estuda a relação entre objetos para obter informações
+                objetos - vertices/nos
+                relações - arestas
+            aciclico, conexos, dirigido e binario
+            somente um caminho entre dois nos distintos
+        RAIZ
+            primeiro nó
+        NÓS NÃO TERMINAIS
+            filho direito
+            filho esquerdo
+            pai
+            avô
+            tio
+            irmão
+            ancestrais
+            descendentes
+        FOLHAS / NÓS TERMINAIS
+            neto
+        ancestrais
+        descendentes
+        subarvore
+            direita e esquerda
+        níveis
+            raíz = 0
+            filhos da raíz = 1
+            netos da raíz = 2
+        altura
+            distancia máxima entre a raíz e a folha terminal mais distante
+            se a altura é h, então a árvore é
+                minimo h nós
+                máximo (2^h)-1 nós
+            se a árvore tem n>=1 nó, então
+                altura é no mínimo ⌈lg(n=1)⌉
+                    -arvore completa
+                        niveis lotaods (exceto talvez o ultimo)
+                        nós ditribuidos
+                        balanceada (equilibrada)
+                altura é ni máximo n
+                    -quando cada nó não terminal tem apenas um filho
+        profundidade de um nó s
+            distancia entre s e a raíz
+        arvore binaria (características)
+            ordem dos filhos é relevante
+        implementação
+            lista simplesmente encadeada
+                criar apontadores para cada necessidade
+            lista estática
+                nos filhos de um no k
+                    2k e 2k+1
+                indice 0 é ignorado
+                descobre o pai dividindo por 2 e considerando o chão da divisão
+                acesso direto e aleatório
+            processamento em profundidade (pilha)
+                pré ordem (começa em cima)
+                    raíz
+                    subarvore esquerda
+                    subarvore direita
+                pós ordem (começa embaixo)
+                    subarvore esquerda
+                    subarvore direita
+                    raíz
+                inordem
+                    subarvore esquerda
+                    raíz
+                    subarvore direita
+            processamento em largura (fila)
+                por niveis
+                
+            
+            
+
+
+
+    pos-fixa
+        operador depois dos operandos
+    pre-fixa
+        operandos depois do operador
+    infixa
+
+    teto de um numero ⌈ ⌉
+        arredondar para cima ou 1 numero para cima
+    chão de um numero ⌊ ⌋
+        arredondar para baixo ou 1 numero para baixo

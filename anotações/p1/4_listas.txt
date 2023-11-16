@@ -1,0 +1,57 @@
+representação de um conjunto de dados
+    listas estáticas (arrays)
+        mesmo tipo de dados
+        espaço consecutivo da RAM
+        acesso aletório por um index = acesso direto
+        nome aponta para o endereço de memória inicial
+        tamanho fixo (stack) ou alocado dinamicamente (heap)
+
+        acesso
+            custo constante
+        remoção
+            custo de deslocamento = custo linear
+        inserções
+            se nao houver o deslocamento, sobre escreve o espaço
+
+    >>dificil manipulação
+
+    listas encadeadas
+    -simplesmente encadeada
+        conjunto de nós ou células
+        armazena um (item) e um (link), o link é um ponteiro para um proximo nós
+        há a possibilidade de realizar operações
+
+        nó prox(ultimo) é NULL
+
+        >>não tem acesso direto
+        >>facil rearranjamento dos itens
+
+        -lista sem cabeça
+            tem que ter o endereço do primeiro nó
+        -lista com cabeça
+            no lugar da cabeça não tem item, só link
+        -com nó cabeça e cauda
+
+    -duplamente encadeada
+        é multilista
+        armazena nó anterior e posterior
+        útil para grandes modificações
+        anterior do primeiro e posterior do ultimo apontam para NULL
+
+    -circular
+        -simplesmente: ultimo aponta pro primeiro
+        -duplamente: primeorp aponta para o ultimo e o ultimo aponta pro primeiro
+        -unico elemento: aponta pra si mesmo
+        -cabeça:
+            o primeiro é o que aponta pro ultimo
+            o ultimo é o que aponta pro primeiro
+    
+    multilista
+        apontamento anterior e proximo sao independentes
+        representação de arvores
+    
+    vetor de strings
+
+    vetor de vetores (matrizes)
+        matrizes com listas encadeadas
+            matrizes esparsas

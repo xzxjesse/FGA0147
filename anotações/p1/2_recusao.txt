@@ -1,0 +1,19 @@
+recursão
+    propriedade de se repetir de forma finita, tendo condição de parada
+        funções que invocam a si mesmas
+        algoritmos complexos em codigos mais compactos
+    há uma dependência entre os elementos
+        o atual depende da determinação de um anterior ou posterio
+    comportamento de pilha
+        acessando o que esta por cima e no fim libera o espaço do topo, retomando a execução de quem tinha chamado ela, chegando a base da pilha (empilhamento e desimpilhamento)
+        stacks: empilhamento de funções
+    compiladores eficientes: otimizações
+    passo base (condição de parada)
+    passo indutivo ou hipotese da indução (n-1)
+    cada chamada tem que tender a condição de parada
+    custo computacional
+        determinado pela relação de recorrência, ou seja, a profundidade da pilha
+    estourp de pilhas
+        recursão de cauda
+        otimização na compilação
+    

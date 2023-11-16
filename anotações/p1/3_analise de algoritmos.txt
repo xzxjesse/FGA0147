@@ -1,0 +1,86 @@
+eficácia: faz o que deve
+eficiência: faz o que deve de forma melhor/mais proveitosa
+
+recursiva!=iterativa
+
+como calcular a eficiência de um programa
+-tempo de máquina
+        depende de muitas variáveis da máquina
+    real: tempo total para a execução
+    user: tempo exclusivo do processo executado
+    sys: tempo que do sistema dedicado a execução do processo
+
+-contagem de instruções executadas
+    analisa somente operações relevantes
+    tendência de comportamento a medida que a entrada cresce
+    calculo aproximado do custo
+        definição da complexidade dos algoritmos
+        complexidade de um algoritmo particular
+        complexidade de uma classe de algoritmos
+
+função de custo f(n)
+    tamanho da instancia do problema
+        cenários (temporais)
+            melhor: menor tempo de execução
+            médio: média dos tempos de execução
+            pior: maior tempo de execução
+    
+    tempo constante
+        independente do tamanho de entrada, as instruções são executadas em um número fixo de vezes
+            atribuições
+            comparações
+            operações aritméticas
+            acessos a memória
+            comando de decisão
+    
+    linear
+        tamanho da entrada
+        para cada entrada uma operação será feita
+        n entradas = n saídas
+        anel ou laço de repetição
+
+    quadrática
+        processamento dos dados em pares
+        demanda o dobro de tempo, porém úteis para problemas pequenos
+
+    cúbicas
+        múltiplicação de matrizes
+        eficiente para pequenos problemas
+
+    exponencial
+        verificação de todas as possibilidades e suas combinações, força bruta
+
+    fatorial
+        pior que a exponencial
+
+    logarítmica
+        inversa da exponencial
+        o tempo aumenta de forma mais gradual
+        processa parte da entrada somente
+        não importa a base de log, pois a grandeza de resultado não tem alterações significativas
+        busca binária em vetor ordenado
+
+    linearítmica
+        divisão e conquista
+        quebra de problema em problemas menores que serão resolvidos e junta-se as soluções para gerar uma nova solução
+
+
+calculo formal    
+    análise assintotica
+        medição formal para calcular aproximadamente a eficiência dos algorítmos
+        descreve o crescimento de funções de acordo com as entradas
+        busca de uma função que represente o limite de f(n)
+
+        notação O
+            delimita o crescimento máximo
+            f(n)=n^2+2n+1, complexidade O(n^2)
+            comparar o crescimento das funções
+            encontrar o limite superior (g(n)=argumento de O) para a taxa de crescimento (f(n)=função de custo)
+            g(n) domina assintoticamente f(n), porém tem a mesma tendência de crescimento
+            revela a equivalência entre os algoritmos
+                mesma tendência de crescimento
+        outras notações
+            omega
+                limite inferior para f(n)
+            theta
+                limitada superiormente e inferiormente à g(n)
