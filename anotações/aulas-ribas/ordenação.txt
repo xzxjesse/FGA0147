@@ -50,4 +50,44 @@ estável
 
 
 desempenho
-https://www.youtube.com/watch?v=etpIf6o0hWI&list=PLzZut2slkqywtFxqTY8AQwIG65h_2oMBL&index=9
+    o comportamento dos algortmos é usado para definir a eficiência dele
+    complexidade
+        tempo de execução -> eficiência do algoritmos
+        espaço ocupado -> eficiência da estrutura de dados
+    medida
+        função custo ou comlexidade f(n)
+        calculado para:
+            melhor caso (menor tempo de execução)
+                f(n)=1
+            pior caso (maior tempo de execução)
+                f(n)=n
+            caso médio (média dos tempos de execução)
+                f(n)=(n+1)/2
+    complexidade assintótica
+        calculo aproximado da eficiência do algoritmo
+        notação O
+            f(n)=n^2+2n+1 -> O(n^2)
+            pega o maior expoente de n e exclui as constantes
+        é comparada a tendência de crescimento de f(n) e g(n)
+        f(n)=O(1)
+            complexidade constante
+            número fixo de execuções
+        f(n)=O(n)
+            complexidade linear
+            vetor
+        f(n)=O(logn)
+            complexidade logarítmica
+            busca binária
+        f(n)=O(nlogn)
+            complexidade logarítmica
+            merge_sort
+        f(n)=O(n^2)
+            complexidade quadrática
+            bubble_sort
+        f(n)=O(n^3)
+            complexidade cúbica
+            multiplicação de matrizes
+        f(n)=O(2^n)
+            complexidade exponencial
+        f(n)=O(n!)
+            complexidade fatorial

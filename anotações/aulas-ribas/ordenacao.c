@@ -251,6 +251,7 @@ int main(void) {
     insertion_sort_otimizado(vetor, 0, 999);
     shell_sort(vetor, 0, 999);
     quick_sort(vetor, 0, 999);
+    merge_sort(vetor, 0, 999);
     
     return 0;
 }
