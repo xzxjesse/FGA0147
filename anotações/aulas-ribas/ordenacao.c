@@ -103,7 +103,7 @@ void insertion_sort_h (item *v, int L, int R, int h) {
 
 void shell_sort (item *v, int L, int R) {
     int h;
-    for(h =v ; h <= (R-L)/9; h=3*h+1){
+    for(h = 1 ; h <= (R-L)/9; h=3*h+1){
     }
 
     for(; h > 0; h=h/3){
@@ -177,9 +177,64 @@ int separa_sedgwick (item *v, int L, int R) {
     return i;
 }
 
+void quick_sort (item *v, int L, int R){
+    int j;
+    j = separa_melhorado(v, L, R);
+    if(R<=L){
+        return;
+    }
+    quick_sort(v, L, j-1);
+    quick_sort(v, j+1, R);
+}
+
 //mediana de três
+void quick_sort_medianda (item *v, int L, int R){
+    int j;
+    j = separa_melhorado(v, L, R);
+    if(R<=L){
+        return;
+    }
+    cmpexch(v[(L+R)/2], v[R]);
+    cmpexch(v[L], v[(L+R)/2]);
+    cmpexch(v[R], v[(L+R)/2]);
+    quick_sort(v, L, j-1);
+    quick_sort(v, j+1, R);
+}
 
+void merge (item *v, int L, int M, int R){
+    item *v2 = malloc(sizeof(item)*(R-L+1));
+    int k = 0;
+    int i = L;
+    int j = M + 1;
+    while(i <= M && j <= R){
+        if(less(v[i], v[j])){
+            v2[k++] = v[i++];
+        }else{
+            v2[k++] = v[j++];
+        }
+    }
+    while(i <= M){
+        v2[k++] = v[i++];
+    }
+    while(j <= R){
+        v2[k++] = v[j++];
+    }
+    k=0;
+    for(i = L; i <= R; i++){
+        v[i] = v2[k++];
+    }
+    free(v2);
+}
 
+void merge_sort (item *v, int L, int R){
+    if(L >= R){
+        return;
+    }
+    int M = (R+L)/2;
+    merge_sort(v, L, M);
+    merge_sort(v, M+1, R);
+    merge(v, L, M, R);
+}
 
 // main
 int main(void) {
@@ -195,11 +250,7 @@ int main(void) {
     insertion_sort(vetor, 0, 999);
     insertion_sort_otimizado(vetor, 0, 999);
     shell_sort(vetor, 0, 999);
-
+    quick_sort(vetor, 0, 999);
+    
     return 0;
 }
-
-/*
-$executionTime = Measure-Command { .\ordenacao.exe }
-Write-Host "Tempo de execução: $($executionTime.TotalSeconds) segundos"
-*/

@@ -35,7 +35,6 @@ void shell_sort(item *v, int L, int R) {
     }
 }
 
-
 void selection_sort(item *v, int L, int R) {
     for (int i = L; i < R; i++) {
         int min = i;
@@ -133,7 +132,7 @@ void insertion_sort_otimizado(item *v, int L, int R) {
             for (int k = 0; k <= R; k++) {
                 printf("%d ", v[k]);
             }
-            printf("\n");
+                       printf("\n");
         }
         v[j] = tmp;
         printf("Insertion Sort Otimizado: ");
@@ -142,6 +141,135 @@ void insertion_sort_otimizado(item *v, int L, int R) {
         }
         printf("\n");
     }
+}
+
+void quick_sort(item *v, int L, int R) {
+    int j;
+    j = separa_melhorado(v, L, R);
+    if (R <= L) {
+        return;
+    }
+    quick_sort(v, L, j - 1);
+    quick_sort(v, j + 1, R);
+}
+
+int separa_melhorado(item *v, int L, int R) {
+    item pivo = v[R];
+    int j = L;
+
+    for (int k = L; k < R; k++) {
+        if (less(v[k], pivo)) {
+            exch(v[k], v[j]);
+            j++;
+        }
+    }
+    exch(v[j], v[R]);
+
+    printf("Quick Sort: ");
+    for (int k = 0; k <= R; k++) {
+        printf("%d ", v[k]);
+    }
+    printf("\n");
+
+    return j;
+}
+
+int separa_melhorado_mediana(item *v, int L, int R) {
+    item pivo = v[R];
+    int j = L;
+
+    for (int k = L; k < R; k++) {
+        if (less(v[k], pivo)) {
+            exch(v[k], v[j]);
+            j++;
+        }
+    }
+    exch(v[j], v[R]);
+
+    printf("Mediana: ");
+    for (int k = 0; k <= R; k++) {
+        printf("%d ", v[k]);
+    }
+    printf("\n");
+
+    return j;
+}
+
+void quick_sort_mediana(item *v, int L, int R) {
+    int j;
+    if (R <= L) {
+        return;
+    }
+
+    j = separa_melhorado_mediana(v, L, R);
+
+    cmpexch(v[(L+R)/2], v[R]);
+    cmpexch(v[L], v[(L+R)/2]);
+    cmpexch(v[R], v[(L+R)/2]);
+
+    printf("Mediana: ");
+    for (int k = 0; k <= R; k++) {
+        printf("%d ", v[k]);
+    }
+    printf("\n");
+
+    quick_sort_mediana(v, L, j - 1);
+    quick_sort_mediana(v, j + 1, R);
+}
+
+void merge(item *v, int L, int M, int R) {
+    item *v2 = malloc(sizeof(item) * (R - L + 1));
+    int k = 0;
+    int i = L;
+    int j = M + 1;
+
+    while (i <= M && j <= R) {
+        if (less(v[i], v[j])) {
+            v2[k++] = v[i++];
+        } else {
+            v2[k++] = v[j++];
+        }
+    }
+
+    while (i <= M) {
+        v2[k++] = v[i++];
+    }
+
+    while (j <= R) {
+        v2[k++] = v[j++];
+    }
+
+    k = 0;
+    for (i = L; i <= R; i++) {
+        v[i] = v2[k++];
+    }
+
+    free(v2);
+
+    printf("Merge: ");
+    for (int k = 0; k <= R; k++) {
+        printf("%d ", v[k]);
+    }
+    printf("\n");
+}
+
+void merge_sort(item *v, int L, int R) {
+    if (L >= R) {
+        return;
+    }
+
+    int M = (R + L) / 2;
+
+    merge_sort(v, L, M);
+    merge_sort(v, M + 1, R);
+
+    printf("Merge sort: ");
+    for (int k = 0; k <= R; k++) {
+        printf("%d ", v[k]);
+    }
+    printf("\n");
+
+    merge(v, L, M, R);
 }
 
 int main(void) {
@@ -171,6 +299,15 @@ int main(void) {
 
     int vetor_shell[10] = {83, 86, 77, 15, 93, 35, 86, 92, 49, 21};
     shell_sort(vetor_shell, 0, 9);
+
+    int vetor_quick[10] = {83, 86, 77, 15, 93, 35, 86, 92, 49, 21};
+    quick_sort(vetor_quick, 0, 9);
+
+    int vetor_mediana[10] = {83, 86, 77, 15, 93, 35, 86, 92, 49, 21};
+    quick_sort_mediana(vetor_mediana, 0, 9);
+
+    int vetor_merge_sort[10] = {83, 86, 77, 15, 93, 35, 86, 92, 49, 21};
+    merge_sort(vetor_merge_sort, 0, 9);
 
     return 0;
 }

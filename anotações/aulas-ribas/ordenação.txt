@@ -11,7 +11,7 @@ estável
 
 >selection sort
     deve percorrer o vetor, selecionar o menor e posicionar ele no menor indice, vai incrementando ate finalizar o vetor
-    instavel
+    instável
     in-place
 
 >bubble sort
@@ -28,22 +28,25 @@ estável
 
 >shell sort
     mesma ideia do insertion sort, entre tanto, ao inves de comparar so com os adjacentes, o intervalo de comparação é maior
-    instavel
+    instável
     in-place
 
     desempenho bom, mas dificil calcular a complexidade
 
 >quick sort
-    separar e rearranjar o vetor, escolheum elemento e todos os maiores devem estar a direita e os menores a esquerda do elemento, mesmo que aos lados nao estejam ordenados
-    instavel
+    separar e rearranjar o vetor, escolhe um elemento e todos os maiores devem estar a direita e os menores a esquerda do elemento, mesmo que os subvetores não estejam ordenados
+    {5 3 4 (6) 9 7 8}
+    instável
     in-place
 
     >mediana de três
-    https://www.youtube.com/watch?v=V9EDV2QJhF4&list=PLzZut2slkqywtFxqTY8AQwIG65h_2oMBL&index=9
+    melhora o desempenho, faz boa escolha do pivo (mais proximo da mediana do vetor)
 
 
 >merge sort
-https://www.youtube.com/watch?v=dSaQwQhbYMU&list=PLzZut2slkqywtFxqTY8AQwIG65h_2oMBL&index=11
+    dividir no meio e ordenar cada metade, divide a quantidade necessaria pra facilitar a ordenação (valores unitários)
+    instável
+    não in-place
 
 
 desempenho
