@@ -16,4 +16,3 @@ recursão
     estourp de pilhas
         recursão de cauda
         otimização na compilação
-    
