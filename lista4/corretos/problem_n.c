@@ -57,6 +57,7 @@ int main(){
         }else{
             votos_invalidos++;
         }
+    }
 
     for (int i = 0, m = 10; i < 4; i++, m *= 10){
         merge_sort(vetor, m, m * 10);
